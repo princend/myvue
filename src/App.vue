@@ -1,30 +1,32 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div id="app">
+    <Header />
+    <main>
+      <PostList />
+      <!-- We will add Vue Router here later to show different pages -->
+    </main>
+    <Footer />
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
+<script setup lang="ts">
+import Header from './components/Header.vue';
+import Footer from './components/Footer.vue';
+import PostList from './components/PostList.vue';
+// HelloWorld component is no longer used directly here
+// import HelloWorld from './components/HelloWorld.vue'
+</script>
+
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+/* Styles for the main app container can go here if needed */
+/* For example, ensuring footer stays at the bottom if content is short */
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+main {
+  flex: 1; /* Allows the main content area to grow and push the footer down */
 }
 </style>
